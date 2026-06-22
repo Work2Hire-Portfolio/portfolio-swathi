@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swathi | AI Engineer Portfolio</title>
+  <meta name="description" content="Portfolio of Swathi, AI Engineer and AI-powered web and mobile app developer based in Karnataka." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2f;
+      --panel: rgba(16, 32, 55, 0.82);
+      --panel-strong: rgba(18, 40, 70, 0.96);
+      --text: #f4f9ff;
+      --muted: #a9b8cc;
+      --line: rgba(148, 163, 184, 0.22);
+      --cyan: #33e6ff;
+      --blue: #5b8cff;
+      --green: #44f0a5;
+      --purple: #b46cff;
+      --warning: #ffcf70;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 8% 14%, rgba(51, 230, 255, 0.18), transparent 30%),
+        radial-gradient(circle at 86% 8%, rgba(180, 108, 255, 0.2), transparent 27%),
+        radial-gradient(circle at 58% 86%, rgba(68, 240, 165, 0.12), transparent 30%),
+        linear-gradient(135deg, #050915 0%, #07111f 45%, #0a1728 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 88%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      left: -130px;
+      bottom: -160px;
+      background: rgba(51, 230, 255, 0.08);
+      filter: blur(12px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.74);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.12rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #04111f;
+      box-shadow: 0 12px 34px rgba(51, 230, 255, 0.28);
+      font-weight: 950;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero {
+      padding: 78px 0 54px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .profile-panel,
+    .section-card,
+    .metric-card,
+    .project-card,
+    .experience-item,
+    .contact-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-copy {
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 56px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -90px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(51,230,255,0.28), transparent 64%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(51,230,255,0.3);
+      border-radius: 999px;
+      color: #bff7ff;
+      background: rgba(51, 230, 255, 0.08);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 24px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 8px rgba(68,240,165,0.12), 0 0 24px rgba(68,240,165,0.85);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cyan), var(--green), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #c8d5e6;
+      font-size: clamp(1.04rem, 1.6vw, 1.22rem);
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 850;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: #03111d;
+      box-shadow: 0 18px 45px rgba(51, 230, 255, 0.2);
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 8px 11px;
+      border-radius: 999px;
+      color: #d9e7fa;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.11);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .profile-panel {
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(51,230,255,0.1), transparent 40%, rgba(180,108,255,0.1));
+      pointer-events: none;
+    }
+
+    .profile-image-wrap {
+      position: relative;
+      border-radius: 26px;
+      padding: 10px;
+      background: linear-gradient(135deg, rgba(51,230,255,0.46), rgba(68,240,165,0.16), rgba(180,108,255,0.44));
+      margin-bottom: 18px;
+    }
+
+    .profile-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: #102033;
+    }
+
+    .profile-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-content h2 {
+      font-size: 1.65rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      color: var(--cyan);
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      color: #d8e5f7;
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow-wrap: anywhere;
+    }
+
+    .info-row span {
+      color: var(--green);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .metric-card {
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      min-height: 136px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      right: -52px;
+      top: -52px;
+      background: rgba(51,230,255,0.1);
+    }
+
+    .metric-number {
+      display: block;
+      font-size: 2.25rem;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-weight: 750;
+      font-size: 0.94rem;
+    }
+
+    section {
+      padding: 48px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-kicker {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      font-weight: 950;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1;
+      letter-spacing: -0.065em;
+    }
+
+    .section-subtitle {
+      max-width: 560px;
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+    }
+
+    .section-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(22px, 3vw, 34px);
+    }
+
+    .section-card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.035em;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .skill-pill {
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .skill-pill strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffffff;
+    }
+
+    .skill-pill small {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .stack-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .stack-cloud span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(51,230,255,0.08);
+      border: 1px solid rgba(51,230,255,0.16);
+      color: #d9fbff;
+      font-weight: 750;
+      font-size: 0.9rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(51,230,255,0.42);
+      background: var(--panel-strong);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--green), var(--purple));
+    }
+
+    .project-type {
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(68,240,165,0.1);
+      color: #bfffe1;
+      border: 1px solid rgba(68,240,165,0.18);
+      font-weight: 850;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      line-height: 1.18;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 22px;
+    }
+
+    .project-meta span {
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #dbe7f7;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .experience-item {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-date {
+      color: var(--warning);
+      font-weight: 950;
+      letter-spacing: -0.02em;
+    }
+
+    .experience-item h3 {
+      font-size: 1.28rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 2px;
+    }
+
+    .company {
+      color: var(--cyan);
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    .bullets {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .bullets li {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .bullets li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      box-shadow: 0 0 18px rgba(51,230,255,0.55);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 42px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 999px;
+      background: rgba(180,108,255,0.14);
+      pointer-events: none;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-list a,
+    .contact-list div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 52px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #dce9fa;
+      overflow-wrap: anywhere;
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(51,230,255,0.24), rgba(180,108,255,0.18));
+      color: var(--cyan);
+      font-weight: 950;
+    }
+
+    .availability {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .availability div {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .availability strong {
+      color: var(--text);
+    }
+
+    footer {
+      padding: 38px 0 46px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: reveal 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.12s; }
+    .delay-2 { animation-delay: 0.24s; }
+    .delay-3 { animation-delay: 0.36s; }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .two-col,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile-panel {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .metrics,
+      .projects-grid,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Swathi portfolio home">
+        <span class="brand-mark">S</span>
+        <span>Swathi<span class="gradient-text">.AI</span></span>
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse"></span> Full-Stack AI Portfolio</div>
+          <h1>Swathi<br><span class="gradient-text">AI Engineer</span></h1>
+          <p class="lead">
+            AI Engineer and AI-powered web/mobile app developer based in Karnataka, focused on building practical AI-assisted products, automation workflows, and scalable web integrations using tools such as Google AI Studio, Python, Firebase, GitHub, Vercel, FastAPI, Flask, and SQL-compatible data flows.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:swathizmail@gmail.com">Hire / Contact Me</a>
+            <a class="btn btn-secondary" href="https://innovit-candidate-documents.s3.ap-south-1.amazonaws.com/resumes/68885d814fc74274b0c0cc11cb2ae66c-Swathi_Pathipaka_Enhanced_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/swathi-pathipaka/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <div class="hero-tags" aria-label="Key capabilities">
+            <span class="tag">AI Engineering</span>
+            <span class="tag">Python Workflows</span>
+            <span class="tag">FastAPI / Flask Planning</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Vercel Deployments</span>
+          </div>
+        </div>
+
+        <aside class="profile-panel reveal delay-1" aria-label="Profile summary card">
+          <div class="profile-image-wrap">
+            <img class="profile-image" src="https://innovit-candidate-documents.s3.ap-south-1.amazonaws.com/profile-pics/e6b9b488fc694b23aa34f1a9cc8d62d5-WhatsApp_Image_2026-06-19_at_1.44.47_PM.jpeg" alt="Swathi profile photo" />
+          </div>
+          <div class="profile-content">
+            <h2>Swathi</h2>
+            <p class="role">AI Engineer</p>
+            <div class="quick-info">
+              <div class="info-row"><span>📍</span> Karnataka, India</div>
+              <div class="info-row"><span>✉</span> <a href="mailto:swathizmail@gmail.com">swathizmail@gmail.com</a></div>
+              <div class="info-row"><span>☎</span> <a href="tel:+919535721363">+91 95357 21363</a></div>
+              <div class="info-row"><span>↗</span> <a href="https://www.linkedin.com/in/swathi-pathipaka/" target="_blank" rel="noopener">linkedin.com/in/swathi-pathipaka</a></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container metrics reveal delay-2" aria-label="Portfolio highlights">
+        <div class="metric-card">
+          <span class="metric-number">3</span>
+          <span class="metric-label">AI-assisted web, WordPress, and mobile products engineered</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-number">30%</span>
+          <span class="metric-label">Improvement in delivery speed through AI-assisted workflows</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-number">4</span>
+          <span class="metric-label">Client website categories planned for AI pipeline extensibility</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-number">100+</span>
+          <span class="metric-label">Employee records supported through structured HR reporting</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container two-col">
+        <div class="section-card reveal">
+          <p class="section-kicker">About</p>
+          <h2 class="section-title">Practical AI systems with product-first execution.</h2>
+        </div>
+        <div class="section-card reveal delay-1">
+          <h3>Profile Summary</h3>
+          <p class="muted">
+            Swathi combines AI-assisted product development, web and mobile deployment experience, and operations automation exposure. Her work includes engineering AI-supported WordPress, web, and mobile products, planning FastAPI and Flask-ready integration flows, and building structured reporting systems from SQL-style datasets.
+          </p>
+          <div class="stack-cloud">
+            <span>Google AI Studio</span>
+            <span>Python</span>
+            <span>Firebase</span>
+            <span>GitHub</span>
+            <span>Vercel</span>
+            <span>FastAPI</span>
+            <span>Flask</span>
+            <span>SQL-style Data</span>
+            <span>Workday</span>
+            <span>Darwinbox</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Skills</p>
+            <h2 class="section-title">Full-stack AI capability map</h2>
+          </div>
+          <p class="section-subtitle">A balanced stack across AI workflow design, application deployment, data handling, and stakeholder-facing delivery.</p>
+        </div>
+        <div class="two-col">
+          <div class="section-card reveal delay-1">
+            <h3>Engineering & AI</h3>
+            <div class="skill-grid">
+              <div class="skill-pill"><strong>AI-assisted development</strong><small>Google AI Studio, prompt workflows, AI product planning</small></div>
+              <div class="skill-pill"><strong>Backend planning</strong><small>FastAPI and Flask-ready integration architecture</small></div>
+              <div class="skill-pill"><strong>Data flows</strong><small>SQL-compatible data structures and reporting logic</small></div>
+              <div class="skill-pill"><strong>Deployment</strong><small>Firebase, GitHub, Vercel, responsive web delivery</small></div>
+            </div>
+          </div>
+          <div class="section-card reveal delay-2">
+            <h3>Product & Operations</h3>
+            <div class="skill-grid">
+              <div class="skill-pill"><strong>Client delivery</strong><small>Requirement translation and stakeholder collaboration</small></div>
+              <div class="skill-pill"><strong>Automation</strong><small>HRIS reporting, reconciliation workflows, structured datasets</small></div>
+              <div class="skill-pill"><strong>Usability</strong><small>Responsive deployments and maintenance-focused execution</small></div>
+              <div class="skill-pill"><strong>Documentation</strong><small>Structured reports, compliance checkpoints, onboarding data</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Selected Work</p>
+            <h2 class="section-title">AI + automation projects</h2>
+          </div>
+          <p class="section-subtitle">Portfolio entries derived from the provided work details and linked professional profile.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div>
+              <div class="project-type">Project</div>
+              <h3>AI-Assisted Web & Mobile Product Builds</h3>
+              <p>Engineered AI-assisted WordPress, web, and mobile products using Google AI Studio, Python workflow prompts, Firebase, GitHub, and Vercel to improve build speed and delivery reliability.</p>
+              <div class="project-meta">
+                <span>Google AI Studio</span><span>Python</span><span>Firebase</span><span>Vercel</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://www.linkedin.com/in/swathi-pathipaka/" target="_blank" rel="noopener">View Profile →</a>
+          </article>
+
+          <article class="project-card reveal delay-1">
+            <div>
+              <div class="project-type">Architecture</div>
+              <h3>FastAPI & Flask Integration Planning</h3>
+              <p>Architected backend-ready integration plans with SQL-compatible data flows for multiple client website categories, improving extensibility for future AI pipeline expansion.</p>
+              <div class="project-meta">
+                <span>FastAPI</span><span>Flask</span><span>SQL</span><span>AI Pipelines</span>
+              </div>
+            </div>
+            <a class="project-link" href="mailto:swathizmail@gmail.com">Discuss Work →</a>
+          </article>
+
+          <article class="project-card reveal delay-2">
+            <div>
+              <div class="project-type">Automation</div>
+              <h3>HRIS Reporting Automation</h3>
+              <p>Automated HRIS reporting with SQL-style Excel datasets across Workday and Darwinbox records, reducing reconciliation effort and improving data readiness for operational decisions.</p>
+              <div class="project-meta">
+                <span>Excel Data</span><span>Workday</span><span>Darwinbox</span><span>Reporting</span>
+              </div>
+            </div>
+            <a class="project-link" href="https://innovit-candidate-documents.s3.ap-south-1.amazonaws.com/resumes/68885d814fc74274b0c0cc11cb2ae66c-Swathi_Pathipaka_Enhanced_Resume.pdf" target="_blank" rel="noopener">View Resume →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker">Experience</p>
+            <h2 class="section-title">Professional timeline</h2>
+          </div>
+          <p class="section-subtitle">Experience details adapted from the provided resume/profile data.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="experience-item reveal">
+            <div class="experience-date">07/2014 — 05/2021</div>
+            <div>
+              <h3>AI-Powered Web and Mobile App Developer</h3>
+              <p class="company">Self-Employed</p>
+              <ul class="bullets">
+                <li>Engineered three AI-assisted WordPress, web, and mobile products with Google AI Studio, Python workflow prompts, Firebase, GitHub, and Vercel, increasing delivery speed by 30%.</li>
+                <li>Architected FastAPI and Flask-ready integration plans with SQL-compatible data flows for four client website categories, improving AI pipeline extensibility by 25%.</li>
+                <li>Collaborated with five client stakeholders to translate requirements into responsive deployments, raising usability and maintenance outcomes by 35%.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item reveal delay-1">
+            <div class="experience-date">06/2021 — 09/2023</div>
+            <div>
+              <h3>Senior HR Executive</h3>
+              <p class="company">BigBasket, Bengaluru</p>
+              <ul class="bullets">
+                <li>Automated HRIS reporting with SQL-style Excel datasets across Workday and Darwinbox records, reducing monthly reconciliation effort by 25%.</li>
+                <li>Coordinated cross-functional hiring workflows with six managers, converting business requirements into structured reports for 100+ employee records.</li>
+                <li>Monitored onboarding, offboarding, and compliance checkpoints across 50+ cases, improving consistency in people operations processes.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card reveal">
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Let’s build AI-enabled products.</h2>
+          <p class="muted" style="margin-top: 16px; max-width: 650px;">
+            Available for AI engineering roles, full-stack AI product work, automation workflows, and web/mobile application delivery.
+          </p>
+          <div class="contact-list">
+            <a href="mailto:swathizmail@gmail.com"><span class="icon">@</span> swathizmail@gmail.com</a>
+            <a href="tel:+919535721363"><span class="icon">☎</span> +91 95357 21363</a>
+            <a href="https://www.linkedin.com/in/swathi-pathipaka/" target="_blank" rel="noopener"><span class="icon">in</span> LinkedIn Profile</a>
+            <a href="https://innovit-candidate-documents.s3.ap-south-1.amazonaws.com/resumes/68885d814fc74274b0c0cc11cb2ae66c-Swathi_Pathipaka_Enhanced_Resume.pdf" target="_blank" rel="noopener"><span class="icon">CV</span> Download / View Resume</a>
+          </div>
+        </div>
+
+        <div class="contact-card reveal delay-1">
+          <h3>Candidate Snapshot</h3>
+          <div class="availability">
+            <div><strong>Target Role</strong><span>AI Engineer</span></div>
+            <div><strong>Current Role</strong><span>AI Engineer</span></div>
+            <div><strong>Experience Band</strong><span>2–5 years</span></div>
+            <div><strong>Location</strong><span>Karnataka</span></div>
+            <div><strong>Username</strong><span>swathi23test</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Swathi. AI Engineer Portfolio. Built as a responsive standalone HTML website.</p>
+    </div>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.project-card, .metric-card, .section-card, .experience-item, .contact-card, .profile-panel');
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(51, 230, 255, 0.10), rgba(16, 32, 55, 0.82) 42%)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.background = '';
+      });
+    });
+  </script>
+</body>
+</html>
